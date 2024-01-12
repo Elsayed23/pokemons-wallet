@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './components/Home';
 import Layout from './components/layout/Layout';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter, createHashRouter } from 'react-router-dom';
 import Favourite from './components/Favourite';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   const [search, setSearch] = React.useState('')
   const [currType, setCurrType] = React.useState('all')
 
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: '', element: <Layout setSearch={setSearch} currType={currType} setCurrType={setCurrType} />, children: [
         { path: '', element: <Home search={search} currType={currType} /> },
