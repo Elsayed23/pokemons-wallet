@@ -96,7 +96,7 @@ const Favourite = ({ search, currType }) => {
                             </div>
                         </>
                         :
-                        <h1 className='text-3xl'>You are not have any pokemon in favourite</h1>
+                        <h1 className='text-3xl text-center'>You are not have any pokemon in favourite</h1>
                 }
             </div>
         </div>
