@@ -85,7 +85,7 @@ const Favourite = ({ search, currType }) => {
 
     return (
         <div className="pt-44 flex flex-col items-center">
-            {hasResults && <h1 className='text-5xl font-bold'>Your Favourite Pokemons</h1>}
+            {hasResults && <h1 className='text-3xl md:text-5xl font-bold text-center '>Your Favourite Pokemons</h1>}
             <div className='py-24 min-h-[calc(100vh-234px)] flex justify-center items-center flex-col gap-14'>
                 {
                     hasResults

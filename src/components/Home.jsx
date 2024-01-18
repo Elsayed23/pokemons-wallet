@@ -35,23 +35,8 @@ const Home = ({ search, currType }) => {
             console.error('Error adding favourite to local storage:', error);
         }
     };
-    // const handleToggleFavorite = () => {
-    //     // Check if the item is already in favorites
-    //     const isAlreadyFavorite = favorites.includes(item.id);
 
-    //     if (isAlreadyFavorite) {
-    //       // Remove the item from favorites if it's already there
-    //       const updatedFavorites = favorites.filter((fav) => fav !== item.id);
-    //       setIsFavorite(false);
-    //       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    //     } else {
-    //       // Add the item to favorites if it's not there
-    //       const updatedFavorites = [...favorites, item.id];
-    //       setIsFavorite(true);
-    //       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-    //     }
-    //   };
-    console.log(favourite);
+
 
     async function getPokemon() {
         try {
@@ -83,25 +68,16 @@ const Home = ({ search, currType }) => {
 
     const hasResults = pokemons && pokemons.length > 0
 
-
     return (
         <>
             <div className="flex flex-col gap-5">
                 <div className='pt-[234px] pb-16 min-h-[calc(100vh-58px)] flex justify-center items-center flex-col gap-14'>
-                    {
-                        hasResults
-                            ?
-                            <>
-                                <div className="container mx-auto px-5 grid xl:grid-cols-2 2xl:grid-cols-3 gap-x-8 gap-y-36">
-                                    {pokemons}
-                                </div>
-                                <div className="flex justify-center">
-                                    <Button onClick={handleShowMore} disabled={visiblePokemon === 1300 || visiblePokemon !== pokemons.length} loading={visiblePokemon !== pokemons.length} variant='gradient'>See More</Button>
-                                </div>
-                            </>
-                            :
-                            <Spinner className="h-16 w-16 text-gray-900/50" />
-                    }
+                    <div className="container mx-auto px-5 grid xl:grid-cols-2 2xl:grid-cols-3 gap-x-8 gap-y-36">
+                        {pokemons}
+                    </div>
+                    <div className="flex justify-center">
+                        {hasResults && <Button onClick={handleShowMore} disabled={visiblePokemon === 1300 || visiblePokemon !== pokemons.length} loading={visiblePokemon !== pokemons.length} variant='gradient'>See More</Button>}
+                    </div>
                 </div>
             </div>
         </>
