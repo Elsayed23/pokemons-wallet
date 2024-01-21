@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pokemons-wallet/static/css/main.3a87fd2c.css",
-    "main.js": "/pokemons-wallet/static/js/main.846237f3.js",
+    "main.css": "/pokemons-wallet/static/css/main.3fd3604f.css",
+    "main.js": "/pokemons-wallet/static/js/main.f7c52553.js",
     "index.html": "/pokemons-wallet/index.html",
-    "main.3a87fd2c.css.map": "/pokemons-wallet/static/css/main.3a87fd2c.css.map",
-    "main.846237f3.js.map": "/pokemons-wallet/static/js/main.846237f3.js.map"
+    "main.3fd3604f.css.map": "/pokemons-wallet/static/css/main.3fd3604f.css.map",
+    "main.f7c52553.js.map": "/pokemons-wallet/static/js/main.f7c52553.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a87fd2c.css",
-    "static/js/main.846237f3.js"
+    "static/css/main.3fd3604f.css",
+    "static/js/main.f7c52553.js"
   ]
 }
