@@ -4,16 +4,14 @@ import Footer from './Footer'
 import SearchBar from './SearchBar'
 import Filter from './Filter'
 
-const Layout = ({ setSearch, currType, setCurrType, }) => {
-
-
+const Layout = () => {
 
     return (
         <>
             <div className="flex">
-                <Filter setCurrType={setCurrType} currType={currType} />
+                <Filter />
                 <div className='w-full'>
-                    <SearchBar setSearch={setSearch} />
+                    <SearchBar />
                     <Outlet />
                     <Footer />
                 </div>

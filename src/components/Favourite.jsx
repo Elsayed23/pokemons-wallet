@@ -1,13 +1,13 @@
 import Card from './Card';
 import axios from 'axios';
-import React from 'react'
-import toast from 'react-hot-toast';
+import React, { useContext } from 'react'
+import { MyContext } from '../context/Context';
 
-const Favourite = ({ search, currType }) => {
+const Favourite = () => {
 
-    const [pokemon, setPokemon] = React.useState([])
 
-    const [favourite, setFavourite] = React.useState([]);
+
+    const { search, favourite, setFavourite, pokemon, getPokemon } = useContext(MyContext)
 
 
     React.useEffect(() => {
@@ -19,15 +19,7 @@ const Favourite = ({ search, currType }) => {
         }
     }, []);
 
-    async function getPokemon() {
-        try {
-            const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
-            const { results } = data
-            setPokemon(results);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+
     React.useEffect(() => {
         getPokemon()
     }, [search])
@@ -41,7 +33,7 @@ const Favourite = ({ search, currType }) => {
     };
 
 
-    const test = favourite?.map(favNum => {
+    const favoruitePokemos = favourite?.map(favNum => {
         return pokemon.filter(apiNum => {
             return getLastNumberFromUrl(apiNum.url) === favNum
         })
@@ -49,34 +41,12 @@ const Favourite = ({ search, currType }) => {
         return url[0]
     })
 
-    const removeFromFavourite = (id) => {
-        try {
-            const storedArray = JSON.parse(localStorage.getItem('favourite')) || [];
 
-            // Remove the specified ID from the array
-            const updatedFavourite = storedArray.filter(lID => {
-                return id !== lID
-            });
-
-            // Update the local storage with the modified array
-            localStorage.setItem('favourite', JSON.stringify(updatedFavourite));
-
-            setFavourite(updatedFavourite);
-            toast.success('The Pokemon has removed from favourite', {
-                duration: 3000
-            })
-        } catch (error) {
-            console.error('Error removing favourite from local storage:', error);
-        }
-    };
-
-
-
-    const pokemons = test?.filter(pokemon => {
+    const pokemons = favoruitePokemos?.filter(pokemon => {
         return search === '' ? pokemon : pokemon?.name.toLowerCase().includes(search)
     })?.map((pokemon, idx) => {
         return (
-            <Card key={idx} {...pokemon} pokemon={pokemon} removeFromFavourite={removeFromFavourite} search={search} currType={currType} />
+            <Card key={idx} {...pokemon} pokemon={pokemon} />
         )
     })
 

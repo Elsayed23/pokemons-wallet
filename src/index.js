@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import { ThemeProvider } from "@material-tailwind/react";
 import { Toaster } from 'react-hot-toast';
+import ContextProvider from './context/Context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <Toaster />
-      <App />
-    </ThemeProvider>
+    <ContextProvider>
+      <ThemeProvider>
+        <Toaster />
+        <App />
+      </ThemeProvider>
+    </ContextProvider>
   </React.StrictMode>
 );

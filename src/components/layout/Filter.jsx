@@ -1,17 +1,21 @@
 import { Option, Select } from '@material-tailwind/react'
-import React from "react";
+import React, { useContext } from "react";
 import {
     Drawer,
     Button,
     Typography,
     IconButton,
 } from "@material-tailwind/react";
+import { MyContext } from '../../context/Context';
 
-const Filter = ({ currType, setCurrType }) => {
+const Filter = () => {
     const [open, setOpen] = React.useState(false);
     const types = ['All', 'Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy']
     const openDrawer = () => setOpen(true);
     const closeDrawer = () => setOpen(false);
+
+    const { currType, setCurrType } = useContext(MyContext)
+
 
     function handleChange(value) {
         setCurrType(value)

@@ -1,9 +1,12 @@
 import { faHeart, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
+import { MyContext } from '../../context/Context';
 
-const Navbar = ({ setSearch }) => {
+const Navbar = () => {
+
+    const { setSearch } = useContext(MyContext)
 
     return (
         <nav className='pt-6 fixed w-full bg-white z-50 shadow-sm'>

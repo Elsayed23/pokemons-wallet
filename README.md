@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Pokemon Stats App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Pokemon Stats App! This project allows you to add your favorite Pokemons, retrieve their stats, and explore a variety of features.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 1. Add Your Favorite Pokemons
 
-### `npm start`
+Save your favorite Pokemons using the local storage feature. This ensures that your selections persist even when you close the app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. Graphical and Appealing Design
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app presents Pokemon stats in a visually appealing design, making it enjoyable to explore and learn more about your favorite creatures.
 
-### `npm test`
+### 3. Search and Filter All Pokemons
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Effortlessly search and filter through a comprehensive list of Pokemons. Find the information you need quickly and easily.
 
-### `npm run build`
+### 4. Skills Demonstrated
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project serves as a demonstration of the following React skills:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React Hooks
+- useContext and Custom hooks
+- Fetching data from an external API and manipulating it to facilitate easy searching and filtering
+- React Router for seamless navigation
+- Material UI for a polished and responsive user interface
+- Efficient handling of pagination, search, and filter functionality in the front-end
+- Utilizing local storage to save and retrieve Pokemon data
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy Pokemon exploring!

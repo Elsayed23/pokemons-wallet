@@ -1,13 +1,16 @@
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Button, Chip, IconButton, Progress, Spinner, Typography } from '@material-tailwind/react'
+import { Chip, IconButton, Progress, Typography } from '@material-tailwind/react'
 import axios from 'axios'
-import React from 'react'
-import { Route, useLocation } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useLocation } from 'react-router-dom'
 import Loading from './Loading'
+import { MyContext } from '../context/Context'
 
 
-const Card = ({ pokemon: { url }, search, currType, addToFavourite, removeFromFavourite }) => {
+const Card = ({ pokemon: { url } }) => {
+
+  const { search, currType, addToFavourite, removeFromFavourite } = useContext(MyContext)
 
   const [pokeDetails, setPokeDetails] = React.useState(null)
   const [isFavourite, setIsFavourite] = React.useState(false)
@@ -22,12 +25,13 @@ const Card = ({ pokemon: { url }, search, currType, addToFavourite, removeFromFa
       console.log(error);
     }
   }
+
   React.useEffect(() => {
     details()
   }, [search, removeFromFavourite])
 
   const { pathname } = useLocation()
-  console.log(isFavourite);
+
   const isFavouritePage = pathname === '/favourite'
 
   const colors = [
@@ -57,13 +61,22 @@ const Card = ({ pokemon: { url }, search, currType, addToFavourite, removeFromFa
     }
   ]
 
+  const handleClickButton = () => {
+    if (isFavouritePage) {
+      removeFromFavourite(pokeDetails.id);
+    } else if (isFavoritePokemon) {
+      removeFromFavourite(pokeDetails.id);
+      setIsFavourite(false);
+    } else {
+      addToFavourite(pokeDetails.id);
+      setIsFavourite(true);
+    }
+  }
 
-  const filterByType = pokeDetails?.types.filter(type => {
-    return type.type.name === currType || currType === 'all'
-  })[0]
+  const filterByType = pokeDetails?.types.filter(type => type.type.name === currType || currType === 'all')[0]
 
 
-  function setColor(text) {
+  const setColor = (text) => {
     let color = colors.map(bar => {
       return text === bar.text && bar.color
     }).filter(e => {
@@ -108,18 +121,11 @@ const Card = ({ pokemon: { url }, search, currType, addToFavourite, removeFromFa
               })
             }
           </div>
-          <IconButton className="rounded-full mt-4" color={isFavouritePage ? 'red' : isFavoritePokemon ? 'red' : 'black'} onClick={
-            () => {
-              isFavouritePage
-                ?
-                removeFromFavourite(pokeDetails.id)
-                :
-                addToFavourite(pokeDetails.id); setIsFavourite(true)
-            }}>
+          <IconButton className="rounded-full mt-4" color={isFavouritePage ? 'red' : isFavoritePokemon ? 'red' : 'black'} onClick={handleClickButton}>
             <FontAwesomeIcon icon={faHeart} />
           </IconButton>
         </div>
-      </div>
+      </div >
       :
       <div className="w-full h-full flex justify-center items-center">
         <Loading />
